@@ -1,0 +1,177 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<link href="~/lib/datatables/css/dataTables.bootstrap4.css" rel="stylesheet" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.1.0/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+<div class="container">
+    <h3 class="text-primary">Customers</h3>
+    <hr />
+    <button type="button" data-bs-toggle="modal" data-bs-target="#staticBackdrop"
+            class="btn btn-sm btn-outline-primary ms-2" data-toggle="modal">
+        اضافة
+    </button>
+    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+         aria-labelledby="staticBackdropLabel" aria-hidden="true">
+
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <form id="formadd" enctype="multipart/form-data">
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="form-group">
+                                <label for="edit_name_en" class="my-3">First Name</label>
+                                <input id="fname" type="text" class="form-control" placeholder="First Name"
+                                       name="FirstName">
+                                <div class="invalid-feedback"></div>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <div class="form-group">
+                                <label for="edit_name_ar" class="my-3">Last Name</label>
+                                <input id="lname" type="text" class="form-control" placeholder="Last Name"
+                                       name="LastName">
+                                <div class="invalid-feedback"></div>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <div class="form-group">
+                                <label for="edit_name_ar" class="my-3">Contact</label>
+                                <input id="cont" type="text" class="form-control" placeholder="Contact"
+                                       name="Contact">
+                                <div class="invalid-feedback"></div>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <div class="form-group">
+                                <label for="edit_name_ar" class="my-3">Email</label>
+                                <input id="email" type="text" class="form-control" placeholder="Contact"
+                                       name="Email">
+                                <div class="invalid-feedback"></div>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <div class="form-group">
+                                <label for="edit_name_ar" class="my-3">DateOfBirth</label>
+                                <input id="DB" type="text" class="form-control" placeholder="Contact" name="DateOfBirth" />
+                                <div class="invalid-feedback"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <input id="btnAdd" type="submit" class="btn btn-primary" value="Add" />
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="EditBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+         aria-labelledby="staticBackdropLabel" aria-hidden="true">
+
+        <div class="modal-dialog"> 
+            <div class="modal-content">
+                <form id="formEdit" enctype="multipart/form-data">
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="form-group">
+                                <label for="edit_name_en" class="my-3">First Name</label>
+                                <input id="fnameEdit" type="text" class="form-control" placeholder="First Name"
+                                       name="FirstName">
+                                <div class="invalid-feedback"></div>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <div class="form-group">
+                                <label for="edit_name_ar" class="my-3">Last Name</label>
+                                <input id="lnameEdit" type="text" class="form-control" placeholder="Last Name"
+                                       name="LastName">
+                                <div class="invalid-feedback"></div>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <div class="form-group">
+                                <label for="edit_name_ar" class="my-3">Contact</label>
+                                <input id="contEdit" type="text" class="form-control" placeholder="Contact"
+                                       name="Contact">
+                                <div class="invalid-feedback"></div>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <div class="form-group">
+                                <label for="edit_name_ar" class="my-3">Email</label>
+                                <input id="emailEdit" type="text" class="form-control" placeholder="Contact"
+                                       name="Email">
+                                <div class="invalid-feedback"></div>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <div class="form-group">
+                                <label for="edit_name_ar" class="my-3">DateOfBirth</label>
+                                <input id="DBEdit" type="text" class="form-control" placeholder="Contact" name="DateOfBirth" />
+                                <div class="invalid-feedback"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <input id="Edit" type="submit" class="btn btn-primary" value="Edit" />
+                </form>
+            </div>
+        </div>
+    </div>
+    <hr />
+    <table id="Customers" class="table table-striped table-bordered  flex-nowrap">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>FirstName</th>
+                <th>LastName</th>
+                <th>Contact</th>
+                <th>Email</th>
+                <th>DateOfBirth</th>
+                <th>Actions</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+    </table>
+</div>
+
+@section Scripts{
+
+
+    <script src="~/lib/datatables/js/jquery.dataTables.js"></script>
+
+    <script src="~/lib/datatables/js/dataTables.bootstrap4.js"></script>
+
+    <script src="~/js/Customers.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.9.2/umd/popper.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.1.0/js/bootstrap.min.js"></script>
+
+    <script>
+        $("body").on("submit","#formadd", function (e) {
+            e.preventDefault();
+           
+            alert($("#fname").val());
+            var firstName = $("#fname").val();
+            var lname = $("#lname").val();
+            var cont = $("#cont").val();
+            var email = $("#email").val();
+            var DB = $("#DB").val();
+            $.ajax({
+                method: "Post",
+                url: "/Operation/AddNew",
+                data: { FirstName: firstName, LastName: lname, Contact: cont, Email: email, DateOfBirth: DB },
+                success: function (data) {
+                    $("table tbody").prepend(createRow(data.id, data.fullName, data.email, data.phoneNumber));
+                },
+                error: function () {
+                    alert("the wae deleted");
+                }
+            });
+
+        })
+    </script>
+
+}
